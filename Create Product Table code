@@ -1,0 +1,16 @@
+CREATE TABLE Product (
+    Product_ID INT PRIMARY KEY,
+    SKU VARCHAR(20) UNIQUE NOT NULL,
+    Product_Name VARCHAR(100) NOT NULL,
+    Category_ID INT,
+    Unit_Price DECIMAL(10,2),
+    Reorder_Level INT
+);
+INSERT INTO Product
+(Product_ID, SKU, Product_Name, Category_ID, Unit_Price, Reorder_Level)
+VALUES
+(101, 'SKU1001', 'Rice 5kg',        1, 350.00, 20),
+(102, 'SKU1002', 'Wheat Flour 1kg', 1,  60.00, 15),
+(103, 'SKU1003', 'Cooking Oil 1L',  2, 150.00, 10),
+(104, 'SKU1004', 'Sugar 1kg',       1,  50.00, 20),
+(105, 'SKU1005', 'Tea Powder 250g', 3, 120.00, 10);
