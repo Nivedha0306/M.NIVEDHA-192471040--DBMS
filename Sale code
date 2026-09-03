@@ -1,0 +1,23 @@
+CREATE TABLE Sale_Item (
+    Sale_Item_ID INT PRIMARY KEY,
+    Sale_ID INT,
+    Product_ID INT,
+    Quantity INT,
+    Unit_Price DECIMAL(10,2),
+
+    FOREIGN KEY (Sale_ID)
+        REFERENCES Sale(Sale_ID),
+
+    FOREIGN KEY (Product_ID)
+        REFERENCES Product(Product_ID)
+);
+INSERT INTO Sale_Item
+(Sale_Item_ID, Sale_ID, Product_ID, Quantity, Unit_Price)
+VALUES
+(1, 1, 101, 10, 350.00),
+(2, 1, 102,  5,  60.00),
+(3, 2, 101, 10, 350.00),
+(4, 2, 103,  3, 150.00),
+(5, 3, 104,  5,  50.00),
+(6, 4, 102,  7,  60.00),
+(7, 5, 105,  1, 120.00);
