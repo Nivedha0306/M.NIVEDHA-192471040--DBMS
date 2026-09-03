@@ -1,0 +1,32 @@
+CREATE VIEW Inventory_Status AS
+SELECT
+    p.Product_ID,
+    p.Product_Name,
+
+    COALESCE(purchased.Total_Purchased, 0)
+    -
+    COALESCE(sold.Total_Sold, 0) AS Current_Stock,
+
+    p.Reorder_Level
+
+FROM Product p
+
+LEFT JOIN
+(
+    SELECT
+        Product_ID,
+        SUM(Quantity) AS Total_Purchased
+    FROM Purchase_Item
+    GROUP BY Product_ID
+) purchased
+ON p.Product_ID = purchased.Product_ID
+
+LEFT JOIN
+(
+    SELECT
+        Product_ID,
+        SUM(Quantity) AS Total_Sold
+    FROM Sale_Item
+    GROUP BY Product_ID
+) sold
+ON p.Product_ID = sold.Product_ID;
