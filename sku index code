@@ -1,0 +1,2 @@
+CREATE INDEX idx_sale_date
+ON Sale(Sale_Date);
