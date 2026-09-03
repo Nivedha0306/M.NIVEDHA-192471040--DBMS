@@ -1,0 +1,12 @@
+CREATE TABLE Supplier (
+    Supplier_ID INT PRIMARY KEY,
+    Supplier_Name VARCHAR(100) NOT NULL,
+    Contact_Phone VARCHAR(20),
+    Email VARCHAR(100)
+);
+INSERT INTO Supplier
+(Supplier_ID, Supplier_Name, Contact_Phone, Email)
+VALUES
+(1, 'Global Foods',    '9876543210', 'info@globalfoods.com'),
+(2, 'Fresh Mart',      '9123456780', 'contact@freshmart.com'),
+(3, 'Sunrise Traders', '9988776655', 'sales@sunrisetraders.com');
