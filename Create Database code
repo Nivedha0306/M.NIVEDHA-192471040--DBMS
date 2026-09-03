@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS SupermarketDB;
+
+CREATE DATABASE SupermarketDB;
+
+USE SupermarketDB;
