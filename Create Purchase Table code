@@ -1,0 +1,14 @@
+CREATE TABLE Purchase (
+    Purchase_ID INT PRIMARY KEY,
+    Supplier_ID INT,
+    Purchase_Date DATE,
+    Total_Amount DECIMAL(10,2),
+    FOREIGN KEY (Supplier_ID)
+        REFERENCES Supplier(Supplier_ID)
+);
+INSERT INTO Purchase
+(Purchase_ID, Supplier_ID, Purchase_Date, Total_Amount)
+VALUES
+(1, 1, '2025-05-01',  8500.00),
+(2, 2, '2025-05-05',  5000.00),
+(3, 3, '2025-05-08',  4350.00);
