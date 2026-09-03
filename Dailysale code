@@ -1,0 +1,6 @@
+SELECT
+    DATE(Sale_Date) AS Sale_Day,
+    SUM(Total_Amount) AS Daily_Total
+FROM Sale
+GROUP BY DATE(Sale_Date)
+ORDER BY Sale_Day;
