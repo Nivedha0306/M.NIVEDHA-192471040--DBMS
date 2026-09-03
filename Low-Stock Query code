@@ -1,0 +1,29 @@
+SELECT
+    p.Product_ID,
+    p.Product_Name,
+    (
+        SELECT COALESCE(SUM(pi.Quantity), 0)
+        FROM Purchase_Item pi
+        WHERE pi.Product_ID = p.Product_ID
+    )
+    -
+    (
+        SELECT COALESCE(SUM(si.Quantity), 0)
+        FROM Sale_Item si
+        WHERE si.Product_ID = p.Product_ID
+    ) AS Current_Stock,
+    p.Reorder_Level
+FROM Product p
+WHERE
+    (
+        SELECT COALESCE(SUM(pi.Quantity), 0)
+        FROM Purchase_Item pi
+        WHERE pi.Product_ID = p.Product_ID
+    )
+    -
+    (
+        SELECT COALESCE(SUM(si.Quantity), 0)
+        FROM Sale_Item si
+        WHERE si.Product_ID = p.Product_ID
+    )
+    <= p.Reorder_Level;
